@@ -1,5 +1,6 @@
 import java.time.LocalDateTime;
 import java.awt.Color;
+import java.util.ArrayList;
 
 class theColor {
     String colName;
@@ -13,6 +14,8 @@ public class Workspace {
     public String description;
     boolean isFavorite;
     public LocalDateTime dateCreated;
+
+    ArrayList<Project> projek = new ArrayList<>();
 
     Workspace(String label, Color color, String colName, String parent, String description, boolean isFavorite, LocalDateTime dateCreated) {
         this.label = label;

@@ -1,29 +1,38 @@
-<?xml version="1.0"?>
-<project name="JavaApp" default="run" basedir="../temp/java-todolist">
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="java-todolist" default="run" basedir=".">
 
-  <property name="src" value="src"/>
-  <property name="build" value="build"/>
-  <property name="lib" value="lib"/>
+    <!-- === PROPERTY CONFIGURATION === -->
+    <property name="src" value="src/main/java"/>
+    <property name="build" value="build"/>
+    <property name="lib" value="lib"/>
 
-  <target name="init">
-    <mkdir dir="${build}"/>
-  </target>
+    <!-- === INITIALIZE BUILD DIR === -->
+    <target name="init">
+        <mkdir dir="${build}"/>
+    </target>
 
-  <target name="compile" depends="init">
-    <javac srcdir="${src}" destdir="${build}" includeantruntime="false">
-      <classpath>
-        <fileset dir="../temp/java-todolist/lib" includes="*.jar"/>
-      </classpath>
-    </javac>
-  </target>
+    <!-- === COMPILE SOURCE FILES === -->
+    <target name="compile" depends="init">
+        <javac srcdir="${src}" destdir="${build}" includeantruntime="false">
+            <classpath>
+                <fileset dir="${lib}" includes="*.jar"/>
+            </classpath>
+        </javac>
+    </target>
 
-  <target name="run" depends="compile">
-    <java classname="Main">
-      <classpath>
-        <pathelement path="${build}"/>
-        <fileset dir="../temp/java-todolist/lib" includes="*.jar"/>
-      </classpath>
-    </java>
-  </target>
+    <!-- === RUN APPLICATION === -->
+    <target name="run" depends="compile">
+        <java classname="todolist.App" fork="true">
+            <classpath>
+                <pathelement path="${build}"/>
+                <fileset dir="${lib}" includes="*.jar"/>
+            </classpath>
+        </java>
+    </target>
+
+    <!-- === CLEAN BUILD DIR === -->
+    <target name="clean">
+        <delete dir="${build}"/>
+    </target>
 
 </project>

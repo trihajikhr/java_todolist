@@ -1,6 +1,10 @@
 package todolist;
+
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class Helper {
     Scanner scan = new Scanner(System.in);
@@ -69,6 +73,25 @@ public class Helper {
             } else {
                 System.out.println("Input terlalu panjang! Melebihi batas " + len + " karakter!");
                 scan.nextLine();
+            }
+        }
+        return ans;
+    }
+
+    // pengecekan format tanggal
+    public LocalDate safeDateInput(String promt){
+        String temp;
+        LocalDate ans;
+        while(true){
+            System.out.print(promt);
+            temp = scan.nextLine();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+            try {
+                ans = LocalDate.parse(temp, formatter);
+                break;
+            } catch (DateTimeParseException e) {
+                System.out.println("Format tanggal salah!");
             }
         }
         return ans;

@@ -2,7 +2,7 @@ package todolist;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Parent {
@@ -29,7 +29,8 @@ public class Parent {
             switch (a) {
                 case 1:
                     printWorkspaces();
-                    int b = help.safeInput("Pilih workspace: ", workspaces);
+                    int idx = help.safeInput("Pilih workspace: ", workspaces);
+                    workspaces.get(idx).mainMenu();
                     break;
                 case 2:
                     workspaceDetail();
@@ -54,9 +55,7 @@ public class Parent {
         for(int i=0; i< workspaces.size(); i++){
             System.out.println((i+1) + ") Workspace -> [" + workspaces.get(i).label + "]");
             System.out.println("Description : " +  workspaces.get(i).description);
-            System.out.println("Date created: " +  workspaces.get(i).dateCreated.format(
-                    DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")
-            ));
+            System.out.println("Date created: " +  workspaces.get(i).dateCreated.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
             help.skip();
         }
     }
@@ -67,7 +66,7 @@ public class Parent {
         temp.label = help.safeStringInput("Nama Workspace    : ", 20);
         System.out.print("Deskripsi tambahan: ");
         temp.description = scan.nextLine();
-        temp.dateCreated = LocalDateTime.now();
+        temp.dateCreated = LocalDate.now();
         workspaces.add(temp);
         System.out.println("Workspace added [" + temp.label +"] successfully");
         help.skip();

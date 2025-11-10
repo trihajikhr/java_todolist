@@ -1,17 +1,17 @@
 package todolist;
 
 import java.util.ArrayList;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Project {
     public String label;
     public String description;
     public int prior;
-    public LocalDateTime startTime;
-    public LocalDateTime endTime;
+    public LocalDate startTime;
+    public LocalDate endTime;
     ArrayList<Inbox> inbox = new ArrayList<>();
 
-    Project(String label, String description, int prior, LocalDateTime startTime, LocalDateTime endTime){
+    Project(String label, String description, int prior, LocalDate startTime, LocalDate endTime){
         this.label = label;
         this.description = description;
         this.prior = prior;

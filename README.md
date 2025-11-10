@@ -8,8 +8,6 @@ Made by 💖
 
 ## V0.0.1 (8/11/2025)
 
-
-
 - Menambahkan fitur `Workspaces` untuk membungkus daftar `Project`. Menerima opsi `Color` untuk membedakan beberapa workspaces berdasarkan warna.
 - Membuat fitur `Project` untuk membungkus daftar `Inbox`. Opsi yang mengelompokan (grouping) daftar `Inbox`. 
 - Menambahkan opsi `Inbox` sebagai grouping `Task`, dengan fitur ganti nama Inbox, prioritas, dan urutkan berdasarkan pembuatan (date created).
@@ -20,3 +18,8 @@ Made by 💖
   3. [SQLite JDBC](https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc), library Java untuk mengkoneksikan aplikasi Java dengan SQLite.
   4. [JFreeChart](https://mvnrepository.com/artifact/org.jfree/jfreechart), library Java untuk menanmpilkan dan mengenerate chart atau grafik, support beberapa desain dan tipe chart.
   5. [OpenCVS](https://mvnrepository.com/artifact/com.opencsv/opencsv), Java bisa melakukan pembacaan dan penulisan file dengan file CSV tanpa library tambahan. Namun library ini bisa digunakan untuk menangani beberapa konfigurasi yang mungkin belum ada di Java.
+
+## V0.0.2 (10/11/2025)
+
+- Menyederhanakan fitur `workspace`, dan mengalihkan opsi-opsi yang sebelumnya dimiliki oleh `workspace` menjadi milik fitur `project`.
+- Berlatih dengan Try Catch, dan menggunakan DateTimeFormatter untuk menampilkan tanggal dengan format custom
